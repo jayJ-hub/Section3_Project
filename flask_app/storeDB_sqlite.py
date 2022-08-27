@@ -1,11 +1,16 @@
 import sqlite3
 import pandas as pd
 
-PATH = '0_database'
+PATH = '.'
 
 #get csv
-analytics = pd.read_csv(f"{PATH}/analytics.csv", index_col = 0)
-info = pd.read_csv(f"{PATH}/info.csv", index_col = 0)
+df = pd.read_csv(f"{PATH}/spotify_music.csv", index_col = 0)
+
+#split into 2 dataframes
+dropCol = ['artist','album','track_number', 'name']
+analytics = df.drop(columns = dropCol).drop(columns = 'uri')
+info = df[dropCol]
+info.insert(loc=0, column='id', value=df['id'])
 
 #connector, cursor
 conn = sqlite3.connect(f"{PATH}/spotify.db")
@@ -14,7 +19,8 @@ c = conn.cursor()
 #create table : info
 c.execute("""CREATE TABLE IF NOT EXISTS info(
 	id TEXT PRIMARY KEY,
-	album TEXT,
+	artist TEXT NOT NULL,
+	album TEXT NOT NULL,
 	track_number INT,
     name TEXT
 );""")
@@ -41,7 +47,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS analytics(
 
 
 #insert data : info
-query_i = "INSERT INTO info VALUES (?,?,?,?)"
+query_i = "INSERT INTO info VALUES (?,?,?,?,?)"
 values_i = info.values.tolist()
 c.executemany(query_i, values_i)
 conn.commit()

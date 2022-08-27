@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+
+{%block content%}
+    <form method="POST">
+        <div class="music_container">
+            {{form.hidden_tag()}} <!--Security-->
+            {{form.music_name.label}}
+            {{form.music_name}}
+
+            {{form.submit()}}
+        </div>        
+    </form>
+    
+{%endblock content%}

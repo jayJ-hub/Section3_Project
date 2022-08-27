@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background-color: aliceblue;
+    
+}
+
+nav 
+{
+    text-align: center;
+    font-size: 2em;
+    color: blueviolet;
+    background-color: beige;
+    padding: 20px;
+}
+form {
+    height: 50%;
+    width: 100%;
+}
+.music_container {
+    height: 100%;
+    background-color: aquamarine;
+    padding: 60px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+    border:2px solid black;
+    margin-top: 40px;
+    border-radius: 10x;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.music_container label {
+    color: red;
+    font-size: 1.8em;
+}
+
+.music_container input {
+    width: 90%;
+    padding: 10px;
+
+}
+
+.music_container input[type=submit] {
+    width: 20%;
+    height: 15%;
+    margin-top: 20px;
+    border: 0px solid transparent;
+    background-color: aliceblue;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px black;
+    
+}
+
+.music_container input[type=submit]:hover {
+    
+    background-color: antiquewhite;
+}
+
+footer {
+
+    position: absolute;
+    width: 100%;
+    line-height: 40px;
+    font-size: 1.8em;
+    text-align: center;
+    bottom:0;
+    background-color: beige;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+
