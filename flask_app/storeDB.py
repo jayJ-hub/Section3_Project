@@ -3,6 +3,7 @@ import pandas as pd
 
 PATH = '.'
 
+
 #get csv
 df = pd.read_csv(f"{PATH}/spotify_music.csv", index_col = 0)
 

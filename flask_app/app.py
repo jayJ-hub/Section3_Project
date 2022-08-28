@@ -1,7 +1,7 @@
 from flask import Flask, render_template,url_for,redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from predict import process_input
+from flask_app.predict import process_input
 app = Flask(__name__)
 # For Security
 app.config['SECRET_KEY'] = "mysecretkey"
