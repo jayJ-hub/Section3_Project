@@ -43,5 +43,5 @@ def process_input(user_input):
     predict = model.predict(arr)[0]
 
     #show output
-    print(f'predicted popularity is {predict:.2f}/100')
-    return f'predicted popularity is {predict:.2f}/100'
+    print(f'{predict:.2f}/100')
+    return f'{predict:.2f}%'

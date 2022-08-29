@@ -9,7 +9,7 @@ app.config['SECRET_KEY'] = "mysecretkey"
 
 class MusicInput(FlaskForm):
     music_name = StringField("Input Music Here")
-    submit = SubmitField("Submit!")
+    submit = SubmitField("Submit")
 
 @app.route('/',methods=["GET","POST"]) 
 def index():
@@ -26,8 +26,9 @@ def index():
 @app.route('/result/',defaults = {'num':0})
 @app.route('/result/<uri>')
 def show_result(uri):
-    predicted_popularity = process_input(uri)    
-    return f"Your Result: {predicted_popularity}"
+    predicted_popularity = process_input(uri)   
+    
+    return render_template("result.html",result=predicted_popularity,song=uri)
 
 
 if __name__ == '__main__':
